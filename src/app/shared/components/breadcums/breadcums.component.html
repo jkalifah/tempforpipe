@@ -1,0 +1,20 @@
+<nav>
+    @for(breadcrumb of breadcrumbs; track breadcrumb.label){
+
+        <ng-container>
+            @if(!$last)
+            {
+                <ng-container>
+                    <a>{{ breadcrumb.label }}</a> &gt;
+                  </ng-container>
+            } @else {
+
+                <ng-container>
+                    {{ breadcrumb.label }}
+                </ng-container>
+            }      
+        </ng-container>
+    }
+    
+    
+  </nav>
