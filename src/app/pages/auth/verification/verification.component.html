@@ -1,0 +1,61 @@
+<div class="main">
+    <div class="logo">
+      <a class="navbar-brand" [routerLink]="['/auth/login']">
+        <img src="./assets/img/project/Vector.png" alt="logo" class="img-fluid me-2"/>
+      </a>
+    </div>
+    </div>
+     
+    <div class="container-custom">
+      <div class="frame">
+          <!-- <div class="IN-logo"></div> -->
+          <div class="div-col-md">           
+              <div class="div-card">
+                  <div class="div-card-body">
+                      <div class="div-text-center">
+                          <div class="heading-welcome">Enter Verification Code</div>
+                        
+                      </div>
+                      <form class="form login" [formGroup]="otpForm" >
+                          <div class="div-mb">  
+                            <mat-label class="inpt-label">Please enter the OTP sent to you by SMS</mat-label>                    
+                            <mat-form-field class="mat-input-style" appearance="outline" >                                               
+                                  <input matInput formControlName="otp" placeholder="Enter OTP">   
+                                  <mat-error>
+                                    @if(otpIsInvalid)
+                                    {
+                                        This is invalid OTP
+                                    }
+                                  </mat-error>                      
+                              </mat-form-field>
+                          </div>
+                          
+                          
+                          <div class="div-form-check">
+                            <p class="text-wrapper">Didn’t receive an OTP?  
+                              <a href="javascript: void(0)" (click)="resendOtp()">
+                              Resend OTP
+                            </a>
+                            &nbsp;
+                            @if(isClicked)
+                            {
+                              {{ counterText }}
+                            }
+                            
+                          </p>
+                          </div>
+                      </form>                     
+                      <button class="button" (click)="verify()">
+                        
+                         <!-- <div class="uploader-status">
+                         <mat-spinner *ngIf="isLoading" color="primary" diameter="20">
+                          </mat-spinner>
+                         </div> -->
+                          Submit</button>
+                          
+                  </div>
+              </div>
+          </div>
+      </div>
+     
+    </div>
